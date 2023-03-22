@@ -30,6 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -47,4 +51,6 @@ dependencies {
     implementation("org.orbit-mvi:orbit-viewmodel:$orbit_version")
     // Tests
     testImplementation("org.orbit-mvi:orbit-test:$orbit_version")
+
+    implementation 'androidx.activity:activity-ktx:1.6.1'
 }
