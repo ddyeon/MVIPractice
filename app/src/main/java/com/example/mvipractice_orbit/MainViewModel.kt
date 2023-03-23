@@ -13,9 +13,16 @@ class MainViewModel: ViewModel(), ContainerHost<CalculatorState, CalculatorSideE
     override val container: Container<CalculatorState, CalculatorSideEffect> = container(CalculatorState())
 
     fun add(number: Int) = intent {
-        postSideEffect(CalculatorSideEffect.Toast("Adding $number to ${state.total}!"))
+        postSideEffect(CalculatorSideEffect.Toast("Adding $number to ${state.total + number}!"))
         reduce {
             state.copy(total = state.total + number)
+        }
+    }
+
+    fun reset() = intent {
+        postSideEffect(CalculatorSideEffect.Toast("reset"))
+        reduce {
+            state.copy(total = 0)
         }
     }
 }

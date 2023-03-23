@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         binding.oneBtn.setOnClickListener { viewModel.add(2) }
         binding.twoBtn.setOnClickListener { viewModel.add(3) }
         binding.threeBtn.setOnClickListener { viewModel.add(5) }
+        binding.resetBtn.setOnClickListener { viewModel.reset() }
     }
 
     private fun render(state: CalculatorState) {
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private fun handleSideEffect(sideEffect: CalculatorSideEffect) {
         when (sideEffect) {
             is CalculatorSideEffect.Toast -> {
-                Toast.makeText(this, sideEffect.text, Toast.LENGTH_LONG).show()
+                Toast.makeText(this, sideEffect.text, Toast.LENGTH_SHORT).show()
             }
         }
     }
